@@ -1,0 +1,2 @@
+recursive-include tutorlimesurvey/patches *
+recursive-include tutorlimesurvey/templates *

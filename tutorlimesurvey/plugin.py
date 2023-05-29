@@ -23,6 +23,8 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("LIMESURVEY_DOCKER_IMAGE", "docker.io/acspri/limesurvey:6.1.0"),
         ("LIMESURVEY_HOST", "limesurvey.{{ LMS_HOST }}"),
         ("LIMESURVEY_PORT", "8082"),
+        ("LIMESURVEY_DB_NAME", "limesurvey"),
+        ("LIMESURVEY_DB_USER", "limesurvey"),
     ]
 )
 
@@ -34,6 +36,11 @@ hooks.Filters.CONFIG_UNIQUE.add_items(
         # Prefix your setting names with 'LIMESURVEY_'.
         # For example:
         ### ("LIMESURVEY_SECRET_KEY", "{{ 24|random_string }}"),
+        ("LIMESURVEY_DB_PASSWORD", "{{ 8|random_string }}"),
+        ("LIMESURVEY_ADMIN_USER", "admin"),
+        ("LIMESURVEY_ADMIN_PASSWORD", "{{ 8|random_string }}"),
+        ("LIMESURVEY_ADMIN_NAME", "Lime Administrator"),
+        ("LIMESURVEY_ADMIN_EMAIL", "lime@lime.lime"),
     ]
 )
 
@@ -60,6 +67,7 @@ MY_INIT_TASKS: list[tuple[str, tuple[str, ...]]] = [
     # tutorlimesurvey/templates/limesurvey/jobs/init/lms.sh
     # And then add the line:
     ### ("lms", ("limesurvey", "jobs", "init", "lms.sh")),
+    ("mysql", ("limesurvey", "jobs", "init", "mysql.sh")),
 ]
 
 

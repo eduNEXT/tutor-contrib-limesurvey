@@ -20,6 +20,9 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # Each new setting is a pair: (setting_name, default_value).
         # Prefix your setting names with 'LIMESURVEY_'.
         ("LIMESURVEY_VERSION", __version__),
+        ("LIMESURVEY_DOCKER_IMAGE", "docker.io/acspri/limesurvey:6.1.0"),
+        ("LIMESURVEY_HOST", "limesurvey.{{ LMS_HOST }}"),
+        ("LIMESURVEY_PORT", "8082"),
     ]
 )
 

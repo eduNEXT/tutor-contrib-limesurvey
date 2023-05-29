@@ -1,0 +1,17 @@
+limesurvey:
+  image: {{ LIMESURVEY_DOCKER_IMAGE }}
+  ports:
+    - 8082:{{ LIMESURVEY_PORT }}
+  environment:
+    LIMESURVEY_DB_PASSWORD: example
+    LIMESURVEY_ADMIN_USER: admin
+    LIMESURVEY_ADMIN_PASSWORD: password
+    LIMESURVEY_ADMIN_NAME: Lime Administrator
+    LIMESURVEY_ADMIN_EMAIL: lime@lime.lime
+  volumes:
+    - ../../data/limesurvey/plugins:/var/www/html/plugins
+    - ../../data/limesurvey/upload:/var/www/html/upload
+    - ../../data/limesurvey/config:/var/www/html/application/config
+  depends_on:
+    - mysql
+  restart: unless-stopped

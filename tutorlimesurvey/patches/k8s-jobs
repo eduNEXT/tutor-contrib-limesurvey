@@ -2,7 +2,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: limesurvey-job
+  name: limesurvey-mysql-job
   labels:
     app.kubernetes.io/component: job
 spec:
@@ -10,8 +10,8 @@ spec:
     spec:
       restartPolicy: Never
       containers:
-      - name: limesurvey
-        image: {{ LIMESURVEY_DOCKER_IMAGE }}
+      - name: mysql
+        image: {{ DOCKER_IMAGE_MYSQL }}
         env:
             - name: LIMESURVEY_ADMIN_EMAIL
               value: {{ LIMESURVEY_ADMIN_EMAIL }}

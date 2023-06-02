@@ -4,11 +4,12 @@ kind: Service
 metadata:
   name: limesurvey
   labels:
-    app.kubernetes.io/component: service
+    app.kubernetes.io/name: limesurvey
 spec:
+  type: ClusterIP
   ports:
-    - name: "8082"
-      port: 8082
+    - port: 8082
+      protocol: TCP
       targetPort: {{ LIMESURVEY_PORT }}
   selector:
     app.kubernetes.io/name: limesurvey

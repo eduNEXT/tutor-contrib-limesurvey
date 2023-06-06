@@ -38,13 +38,21 @@ spec:
             - containerPort: {{ LIMESURVEY_PORT }}
           volumeMounts:
             - mountPath: /var/www/html/plugins
-              name: limesurvey
+              name: limesurvey-plugins
             - mountPath: /var/www/html/upload
-              name: limesurvey
+              name: limesurvey-uploads
             - mountPath: /var/www/html/application/config
-              name: limesurvey
+              name: limesurvey-config
       restartPolicy: Always
       volumes:
-        - name: limesurvey
+        - name: limesurvey-plugins
           persistentVolumeClaim:
-            claimName: limesurvey
+            claimName: limesurvey-plugins
+        - name: limesurvey-uploads
+          persistentVolumeClaim:
+            claimName: limesurvey-uploads
+        {% if LIMESURVEY_CONFIG %}
+        - name: limesurvey-config
+          configMap:
+            name: limesurvey-configmap
+        {% endif %}

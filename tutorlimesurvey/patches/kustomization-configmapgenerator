@@ -1,0 +1,8 @@
+{% if LIMESURVEY_CONFIG %}
+- name: limesurvey-configmap
+  files:
+    - plugins/limesurvey/apps/pythonpath/openedx_jinja_filters.py
+  options:
+    labels:
+        app.kubernetes.io/name: limesurvey
+{% endif %}

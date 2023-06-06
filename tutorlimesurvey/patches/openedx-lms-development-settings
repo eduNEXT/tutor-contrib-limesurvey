@@ -1,0 +1,2 @@
+LIMESURVEY_URL = "http://{{ LIMESURVEY_HOST }}:8082"
+LIMESURVEY_INTERNAL_API = "http://limesurvey:{{ LIMESURVEY_PORT }}/admin/remotecontrol"

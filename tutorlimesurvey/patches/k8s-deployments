@@ -1,0 +1,61 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: limesurvey
+  labels:
+    app.kubernetes.io/name: limesurvey
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: limesurvey
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: limesurvey
+    spec:
+      containers:
+        - env:
+            - name: LIMESURVEY_ADMIN_EMAIL
+              value: {{ LIMESURVEY_ADMIN_EMAIL }}
+            - name: LIMESURVEY_ADMIN_NAME
+              value: {{ LIMESURVEY_ADMIN_NAME }}
+            - name: LIMESURVEY_ADMIN_PASSWORD
+              value: {{ LIMESURVEY_ADMIN_PASSWORD }}
+            - name: LIMESURVEY_ADMIN_USER
+              value: {{ LIMESURVEY_ADMIN_USER }}
+            - name: LIMESURVEY_DB_HOST
+              value: {{ MYSQL_HOST }}
+            - name: LIMESURVEY_DB_NAME
+              value: {{ LIMESURVEY_DB_NAME }}
+            - name: LIMESURVEY_DB_PASSWORD
+              value: {{ LIMESURVEY_DB_PASSWORD }}
+            - name: LIMESURVEY_DB_USER
+              value: {{ LIMESURVEY_DB_USER }}
+          image: {{ LIMESURVEY_DOCKER_IMAGE }}
+          name: limesurvey
+          ports:
+            - containerPort: {{ LIMESURVEY_PORT }}
+          volumeMounts:
+            - mountPath: /var/www/html/plugins
+              name: limesurvey-plugins
+            - mountPath: /var/www/html/upload
+              name: limesurvey-uploads
+            - mountPath: /var/www/html/application/config
+              name: limesurvey-config
+      restartPolicy: Always
+      volumes:
+        - name: limesurvey-plugins
+          persistentVolumeClaim:
+            claimName: limesurvey-plugins
+        - name: limesurvey-uploads
+          persistentVolumeClaim:
+            claimName: limesurvey-uploads
+        - name: limesurvey-config
+          persistentVolumeClaim:
+            claimName: limesurvey-config
+        {% if LIMESURVEY_CONFIG %}
+        - name: limesurvey-configmap
+          configMap:
+            name: limesurvey-configmap
+        {% endif %}

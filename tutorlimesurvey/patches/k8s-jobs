@@ -1,0 +1,31 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: limesurvey-mysql-job
+  labels:
+    app.kubernetes.io/component: job
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: mysql
+        image: {{ DOCKER_IMAGE_MYSQL }}
+        env:
+            - name: LIMESURVEY_ADMIN_EMAIL
+              value: {{ LIMESURVEY_ADMIN_EMAIL }}
+            - name: LIMESURVEY_ADMIN_NAME
+              value: {{ LIMESURVEY_ADMIN_NAME }}
+            - name: LIMESURVEY_ADMIN_PASSWORD
+              value: {{ LIMESURVEY_ADMIN_PASSWORD }}
+            - name: LIMESURVEY_ADMIN_USER
+              value: {{ LIMESURVEY_ADMIN_USER }}
+            - name: LIMESURVEY_DB_HOST
+              value: {{ MYSQL_HOST }}
+            - name: LIMESURVEY_DB_NAME
+              value: {{ LIMESURVEY_DB_NAME }}
+            - name: LIMESURVEY_DB_PASSWORD
+              value: {{ LIMESURVEY_DB_PASSWORD }}
+            - name: LIMESURVEY_DB_USER
+              value: {{ LIMESURVEY_DB_USER }}

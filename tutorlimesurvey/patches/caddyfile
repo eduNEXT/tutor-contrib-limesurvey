@@ -1,4 +1,6 @@
+{% if RUN_LIMESURVEY %}
 # Limesurvey
 {{ LIMESURVEY_HOST }}{$default_site_port} {
     import proxy "limesurvey:{{ LIMESURVEY_PORT }}"
 }
+{% endif %}

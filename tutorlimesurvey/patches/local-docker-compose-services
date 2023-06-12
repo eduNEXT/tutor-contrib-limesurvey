@@ -1,3 +1,4 @@
+{% if RUN_LIMESURVEY %}
 limesurvey:
   image: {{ LIMESURVEY_DOCKER_IMAGE }}
   ports:
@@ -18,3 +19,4 @@ limesurvey:
   restart: unless-stopped
   depends_on:
     - mysql
+{% endif %}

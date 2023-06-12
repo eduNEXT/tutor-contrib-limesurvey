@@ -42,6 +42,7 @@ hooks.Filters.CONFIG_UNIQUE.add_items(
         ("LIMESURVEY_ADMIN_PASSWORD", "{{ 8|random_string }}"),
         ("LIMESURVEY_ADMIN_NAME", "Lime Administrator"),
         ("LIMESURVEY_ADMIN_EMAIL", "lime@lime.lime"),
+        ("RUN_LIMESURVEY", True),
     ]
 )
 

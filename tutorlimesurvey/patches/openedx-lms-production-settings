@@ -1,2 +1,8 @@
-LIMESURVEY_URL = "{{ "https" if ENABLE_HTTPS else "http" }}://{{ LIMESURVEY_HOST }}"
+LIMESURVEY_SCHEMA = "{{ "https" if ENABLE_HTTPS else "http" }}"
+LIMESURVEY_URL = f"{ LIMESURVEY_SCHEMA }://{{ LIMESURVEY_HOST }}"
+
+{% if RUN_LIMESURVEY %}
 LIMESURVEY_INTERNAL_API = "http://limesurvey:{{ LIMESURVEY_PORT }}/admin/remotecontrol"
+{% else %}
+LIMESURVEY_INTERNAL_API = f"{ LIMESURVEY_URL }/admin/remotecontrol"
+{% endif %}

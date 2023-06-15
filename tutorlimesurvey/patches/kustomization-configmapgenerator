@@ -1,4 +1,4 @@
-{% if LIMESURVEY_CONFIG %}
+{% if LIMESURVEY_CONFIG and RUN_LIMESURVEY %}
 - name: limesurvey-configmap
   files:
     - plugins/limesurvey/apps/applications/config/config.php

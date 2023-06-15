@@ -1,6 +1,6 @@
-limesurvey plugin for `Tutor <https://docs.tutor.overhang.io>`__
+LimeSurvey plugin for `Tutor <https://docs.tutor.overhang.io>`__
 ===================================================================================
-LimeSurvey is an open-source online survey software that allows users to create and conduct surveys, questionnaries, and polls.
+LimeSurvey is an open-source online survey software that allows users to create and conduct surveys, questionnaires, and polls.
 
 This plugin allows you to install LimeSurvey in your Tutor ecosystem.
 
@@ -38,7 +38,7 @@ Visit the administrator::
 
     http://limesurvey.local.overhang.io/admin
 
-Login with the your credentials!
+Login with your credentials!
 
 
 License

@@ -32,11 +32,7 @@ Run the environment::
 
 Visit the administrator::
 
-    http://limesurvey.local.overhang.io:8082/admin 
-
-    or
-
-    http://limesurvey.local.overhang.io/admin
+    <LIMESURVEY_URL>/admin
 
 Login with your credentials!
 

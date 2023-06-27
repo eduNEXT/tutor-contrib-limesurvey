@@ -22,7 +22,7 @@ Save the changes in the environment::
 
     tutor config save
 
-Run the initialization script in your chosen environment (dev or local):::
+Run the initialization script in your chosen environment (dev or local)::
 
     tutor [dev|local] do init -l limesurvey
 

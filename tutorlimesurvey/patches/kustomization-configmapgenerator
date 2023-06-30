@@ -1,8 +1,16 @@
-{% if LIMESURVEY_CONFIG and RUN_LIMESURVEY %}
-- name: limesurvey-configmap
+{%- if RUN_LIMESURVEY %}
+- name: limesurvey-apacheconf
   files:
-    - plugins/limesurvey/apps/applications/config/config.php
+    - plugins/limesurvey/apps/etc/apache2/apache2.conf
   options:
     labels:
         app.kubernetes.io/name: limesurvey
-{% endif %}
+{%- if LIMESURVEY_CONFIGPHP %}
+- name: limesurvey-configphp
+  files:
+    - plugins/limesurvey/apps/var/www/html/application/config/config.php
+  options:
+    labels:
+        app.kubernetes.io/name: limesurvey
+{%- endif %}
+{%- endif %}

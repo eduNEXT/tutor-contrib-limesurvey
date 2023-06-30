@@ -44,6 +44,11 @@ spec:
               name: limesurvey-uploads
             - mountPath: /var/www/html/application/config
               name: limesurvey-config
+            {%- if LIMESURVEY_CONFIGPHP %}
+            - mountPath: /var/www/html/application/config/config.php
+              name: limesurvey-configphp
+              subPath: config.php
+            {%- endif %}
       restartPolicy: Always
       volumes:
         - name: limesurvey-plugins
@@ -55,9 +60,9 @@ spec:
         - name: limesurvey-config
           persistentVolumeClaim:
             claimName: limesurvey-config
-        {% if LIMESURVEY_CONFIG %}
-        - name: limesurvey-configmap
+        {%- if LIMESURVEY_CONFIGPHP %}
+        - name: limesurvey-configphp
           configMap:
-            name: limesurvey-configmap
-        {% endif %}
+            name: limesurvey-configphp
+        {%- endif %}
 {% endif %}

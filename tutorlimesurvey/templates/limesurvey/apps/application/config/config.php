@@ -1,1 +1,0 @@
-{{ LIMESURVEY_CONFIG }}

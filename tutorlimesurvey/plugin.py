@@ -25,7 +25,6 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("LIMESURVEY_PORT", "80"),
         ("LIMESURVEY_DB_NAME", "limesurvey"),
         ("LIMESURVEY_DB_USER", "limesurvey"),
-        ("LIMESURVEY_CONFIG", ""),
     ]
 )
 

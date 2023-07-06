@@ -55,9 +55,4 @@ spec:
         - name: limesurvey-config
           persistentVolumeClaim:
             claimName: limesurvey-config
-        {% if LIMESURVEY_CONFIG %}
-        - name: limesurvey-configmap
-          configMap:
-            name: limesurvey-configmap
-        {% endif %}
 {% endif %}

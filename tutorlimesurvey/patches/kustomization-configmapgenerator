@@ -1,8 +1,0 @@
-{% if LIMESURVEY_CONFIG and RUN_LIMESURVEY %}
-- name: limesurvey-configmap
-  files:
-    - plugins/limesurvey/apps/applications/config/config.php
-  options:
-    labels:
-        app.kubernetes.io/name: limesurvey
-{% endif %}

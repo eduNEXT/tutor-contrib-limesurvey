@@ -25,6 +25,12 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("LIMESURVEY_PORT", "80"),
         ("LIMESURVEY_DB_NAME", "limesurvey"),
         ("LIMESURVEY_DB_USER", "limesurvey"),
+        (
+            "OPENEDX_EXTRA_PIP_REQUIREMENTS",
+            [
+                "git+https://github.com/eduNEXT/xblock-limesurvey.git@v0.2.3",
+            ],
+        ),
     ]
 )
 

@@ -14,6 +14,13 @@ Change Log
 Unreleased
 ----------
 
+[15.1.0] - 2023-07-06
+---------------------
+
+* Add LimeSurvey XBlock as extra pip requirement.
+* Remove config.php since is not overridable.
+
+
 [15.0.0] - 2023-06-27
 ---------------------
 

@@ -1,4 +1,3 @@
-{%- raw -%}
 <?php if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
@@ -28,15 +27,15 @@ $longName = exec("echo \$TZ"); if (!empty($longName)) {date_default_timezone_set
 return array(
     'components' => array(
         'db' => array(
-            'connectionString' =>'mysql:host=mysql;port=3306;dbname=limesurvey;',
+            'connectionString' =>'mysql:host={{ MYSQL_HOST }};port=3306;dbname={{ LIMESURVEY_DB_NAME }};',
             'emulatePrepare' => true,
-            'username' =>'limesurvey',
-            'password' =>'QYxIsaP1',
+            'username' =>'{{ LIMESURVEY_DB_USER }}',
+            'password' =>'{{ LIMESURVEY_DB_PASSWORD }}',
             'charset' => 'utf8mb4',
 'attributes' => array(),
             'tablePrefix' =>'',
         ),
-
+        {%- raw %}
         // Uncomment the following lines if you need table-based sessions.
         // Note: Table-based sessions are currently not supported on MSSQL server.
         // 'session' => array (
@@ -44,6 +43,7 @@ return array(
             // 'connectionID' => 'db',
             // 'sessionTableName' => '{{sessions}}',
         // ),
+        {%- endraw %}
 
         'request' => array(
 			'enableCsrfValidation'=>true,
@@ -78,4 +78,3 @@ return array(
 );
 /* End of file config.php */
 /* Location: ./application/config/config.php */
-{%- endraw -%}

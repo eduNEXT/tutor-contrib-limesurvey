@@ -20,7 +20,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # Each new setting is a pair: (setting_name, default_value).
         # Prefix your setting names with 'LIMESURVEY_'.
         ("LIMESURVEY_VERSION", __version__),
-        ("LIMESURVEY_DOCKER_IMAGE", "docker.io/edunext/limesurvey:15.1.2"),
+        ("LIMESURVEY_DOCKER_IMAGE", "docker.io/edunext/limesurvey:15.0.0"),
         ("LIMESURVEY_DOCKER_BASE_IMAGE", "docker.io/acspri/limesurvey:6.1.0"),
         ("LIMESURVEY_HOST", "limesurvey.{{ LMS_HOST }}"),
         ("LIMESURVEY_PORT", "80"),
@@ -29,7 +29,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         (
             "OPENEDX_EXTRA_PIP_REQUIREMENTS",
             [
-                "git+https://github.com/eduNEXT/xblock-limesurvey.git@v0.2.3",
+                "git+https://github.com/eduNEXT/xblock-limesurvey.git@v0.4.1",
             ],
         ),
     ]

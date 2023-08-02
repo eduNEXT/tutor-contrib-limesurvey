@@ -20,7 +20,8 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # Each new setting is a pair: (setting_name, default_value).
         # Prefix your setting names with 'LIMESURVEY_'.
         ("LIMESURVEY_VERSION", __version__),
-        ("LIMESURVEY_DOCKER_IMAGE", "docker.io/acspri/limesurvey:6.1.0"),
+        ("LIMESURVEY_DOCKER_IMAGE", "docker.io/edunext/limesurvey:15.1.2"),
+        ("LIMESURVEY_DOCKER_BASE_IMAGE", "docker.io/acspri/limesurvey:6.1.0"),
         ("LIMESURVEY_HOST", "limesurvey.{{ LMS_HOST }}"),
         ("LIMESURVEY_PORT", "80"),
         ("LIMESURVEY_DB_NAME", "limesurvey"),
@@ -103,12 +104,12 @@ hooks.Filters.IMAGES_BUILD.add_items(
         # To build `myimage` with `tutor images build myimage`,
         # you would add a Dockerfile to templates/limesurvey/build/myimage,
         # and then write:
-        ### (
-        ###     "myimage",
-        ###     ("plugins", "limesurvey", "build", "myimage"),
-        ###     "docker.io/myimage:{{ LIMESURVEY_VERSION }}",
-        ###     (),
-        ### ),
+        (
+            "limesurvey",
+            ("plugins", "limesurvey", "build", "limesurvey"),
+            "{{ LIMESURVEY_DOCKER_IMAGE }}",
+            (),
+        ),
     ]
 )
 
@@ -119,10 +120,10 @@ hooks.Filters.IMAGES_BUILD.add_items(
 hooks.Filters.IMAGES_PULL.add_items(
     [
         # To pull `myimage` with `tutor images pull myimage`, you would write:
-        ### (
-        ###     "myimage",
-        ###     "docker.io/myimage:{{ LIMESURVEY_VERSION }}",
-        ### ),
+        (
+            "limesurvey",
+            "{{ LIMESURVEY_DOCKER_IMAGE }}",
+        ),
     ]
 )
 
@@ -133,10 +134,10 @@ hooks.Filters.IMAGES_PULL.add_items(
 hooks.Filters.IMAGES_PUSH.add_items(
     [
         # To push `myimage` with `tutor images push myimage`, you would write:
-        ### (
-        ###     "myimage",
-        ###     "docker.io/myimage:{{ LIMESURVEY_VERSION }}",
-        ### ),
+        (
+            "limesurvey",
+            "{{ LIMESURVEY_DOCKER_IMAGE }}",
+        ),
     ]
 )
 

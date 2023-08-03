@@ -36,13 +36,19 @@ return array(
             'tablePrefix' =>'',
         ),
         {%- raw %}
-        // Uncomment the following lines if you need table-based sessions.
-        // Note: Table-based sessions are currently not supported on MSSQL server.
-        // 'session' => array (
-            // 'class' => 'application.core.web.DbHttpSession',
-            // 'connectionID' => 'db',
-            // 'sessionTableName' => '{{sessions}}',
-        // ),
+        'session' => array (
+			'sessionName'=>'LS-VBXZZORFJZCAKGYI',
+			// Uncomment the following lines if you need table-based sessions.
+			// Note: Table-based sessions are currently not supported on MSSQL server.
+			// 'class' => 'application.core.web.DbHttpSession',
+			// 'connectionID' => 'db',
+			// 'sessionTableName' => '{{sessions}}',
+			'cookieParams' => array(
+				'secure' => true,
+				'httponly' => true,
+				'samesite' => 'None',
+			),
+		 ),
         {%- endraw %}
 
         'request' => array(

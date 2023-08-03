@@ -22,6 +22,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("LIMESURVEY_VERSION", __version__),
         ("LIMESURVEY_DOCKER_IMAGE", "docker.io/edunext/limesurvey:15.0.0"),
         ("LIMESURVEY_DOCKER_BASE_IMAGE", "docker.io/acspri/limesurvey:6.1.0"),
+        ("LIMESURVEY_DOCKER_DEV_IMAGE", "{{ LIMESURVEY_DOCKER_BASE_IMAGE }}"),
         ("LIMESURVEY_HOST", "limesurvey.{{ LMS_HOST }}"),
         ("LIMESURVEY_PORT", "80"),
         ("LIMESURVEY_DB_NAME", "limesurvey"),

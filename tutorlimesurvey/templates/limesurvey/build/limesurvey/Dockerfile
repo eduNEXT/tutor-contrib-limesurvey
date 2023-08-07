@@ -1,4 +1,4 @@
-FROM docker.io/acspri/limesurvey:6.1.0
+FROM {{ LIMESURVEY_DOCKER_BASE_IMAGE }}
 
 COPY ./config.php /var/lime/application/config/config.php
 

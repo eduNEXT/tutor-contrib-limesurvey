@@ -30,7 +30,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         (
             "OPENEDX_EXTRA_PIP_REQUIREMENTS",
             [
-                "git+https://github.com/eduNEXT/xblock-limesurvey.git@v0.4.1",
+                "git+https://github.com/eduNEXT/xblock-limesurvey.git@v0.5.0",
             ],
         ),
     ]

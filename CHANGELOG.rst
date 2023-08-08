@@ -14,6 +14,11 @@ Change Log
 Unreleased
 ----------
 
+[15.2.0] - 2023-08-08
+---------------------
+
+* Add support for custom config.php file during image building.
+
 [15.1.0] - 2023-07-06
 ---------------------
 

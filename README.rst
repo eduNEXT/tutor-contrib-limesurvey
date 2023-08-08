@@ -74,20 +74,19 @@ https://github.com/adamzammit/limesurvey-docker/blob/master/docker-entrypoint.sh
 In case you want to keep up with the latest changes in the config.php file, you can do:
 
 1. Connect to the running container: docker exec -it limesurvey bash
-2. Copy the file /var/www/html/application/config/config.php to the host machine
+2. Copy the file ``/var/www/html/application/config/config.php`` to the host machine
 3. Compare the two files and copy any changes from the host machine file to this file
 
 In case you want to make changes to the config.php file and keep them in the plugin, you can do:
 
-4. Make the changes to the file tutorlimesurvey/build/limesurvey/config.php
+4. Make the changes to the file ``tutorlimesurvey/build/limesurvey/config.php``
 
 In both cases you will need to:
 
 5. Commit the changes to the host machine file to git
-6. Build a new image: tutor images build limesurvey
-7. Push the new image to Docker Hub: tutor images push limesurvey
-8. When starting the new container, make sure the new config.php is used. If not, remove the old
-config.php from the container and restart it.
+6. Build a new image: ``tutor images build limesurvey``
+7. Push the new image to Docker Hub: ``tutor images push limesurvey``
+8. When starting the new container, make sure the new config.php is used. If not, remove the old config.php from the container and restart it.
 
 License
 -------

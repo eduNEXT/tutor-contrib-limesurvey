@@ -14,6 +14,11 @@ Change Log
 Unreleased
 ----------
 
+[17.0.0] - 2024-05-21
+---------------------
+
+* Add support for LimeSurvey for Open edX Quince release for dev, local and k8s installations.
+
 [15.2.0] - 2023-08-08
 ---------------------
 

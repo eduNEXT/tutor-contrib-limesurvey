@@ -14,6 +14,19 @@ Change Log
 Unreleased
 ----------
 
+[18.0.0] - 2025-08-28
+---------------------
+
+Changed
+=======
+
+* Replaced usage of `pkg_resources` with `importlib.resources.files` for template loading.
+
+BREAKING CHANGES
+================
+
+* This change drops support for Python <3.9, since `importlib.resources.files` is only available from 3.9 onwards.
+
 [17.0.0] - 2024-05-21
 ---------------------
 
